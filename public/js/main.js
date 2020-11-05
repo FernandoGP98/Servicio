@@ -58,13 +58,13 @@ function createscene(){
     //renderer = new THREE.WebGLRenderer({canvas: document.querySelector("canvas")});
 
     //CANVAS
-    
+
     //container.appendChild(renderer.domElement);
 
     //CAMARA
     const fov = 50;
     const acercamiento = 0.1;
-    const lejania = 1000;
+    const lejania = 2000;
     //camara = new THREE.PerspectiveCamera(fov, sceneW/sceneH, acercamiento, lejania);
     //camara = new THREE.PerspectiveCamera(fov, container.innerWidth/ container.innerHeight, acercamiento, lejania);
     camara = new THREE.PerspectiveCamera(fov, 1, acercamiento, lejania);
@@ -100,7 +100,7 @@ function createscene(){
     controls = new OrbitControls(camara, renderer.domElement);
     controls.enablePan=false;
     controls.minDistance=200;
-    controls.maxDistance=500;
+    controls.maxDistance=700;
     controls.update();
 
     //CUBO
@@ -121,7 +121,7 @@ function createscene(){
         loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
         console.log( 'Loading complete!');
         loadComplete=true;
-        
+
         for (let index = 0; index < models.length; index++) {
             models[index].position.x-=addPos;
             console.log(addPos);
@@ -129,19 +129,48 @@ function createscene(){
         }
     };
 
-    
+
+    cargador.load("../assets/Intersecciones/Cilindro cono.fbx", function(object){
+        //mixer = new THREE.AnimationMixer(object);
+        //var action = mixerclipAction(object.animations[0]);
+        //action.play();
+
+        object.traverse(function(child){
+            if(child.isMesh){
+                //child.castShadow=true;
+                //child.recieveShadow = true;
+                child.material.fog=false;
+                child.material.depthWrite = false;
+                /*[THREE.BackSide].forEach((side)=>{
+                    child.material = new THREE.MeshPhongMaterial({
+                        color: 0xff0000,
+                        opacity: 0.5,
+                        transparent: true,
+                        side,
+                    });;
+                });*/
+
+            }
+        });
+
+        object.position.y=50;
+        //object.scale.set(0.02,0.02,0.02);
+        scene.add(object);
+        models.push(object);
+    });
+
     cargador.load("../assets/The_usurper/unsurper.fbx", function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
-        
+
         object.traverse(function(child){
             if(child.isMesh){
                 child.castShadow=true;
                 child.recieveShadow = true;
             }
         });
-    
+
         object.position.z=100;
         scene.add(object);
         models.push(object);
@@ -151,31 +180,14 @@ function createscene(){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
-        
+
         object.traverse(function(child){
             if(child.isMesh){
                 child.castShadow=true;
                 child.recieveShadow = true;
             }
         });
-    
-        object.position.z=100;
-        scene.add(object);
-        models.push(object);
-    });
-    
-    cargador.load("../assets/The_usurper/unsurper.fbx", function(object){
-        //mixer = new THREE.AnimationMixer(object);
-        //var action = mixerclipAction(object.animations[0]);
-        //action.play();
-        
-        object.traverse(function(child){
-            if(child.isMesh){
-                child.castShadow=true;
-                child.recieveShadow = true;
-            }
-        });
-    
+
         object.position.z=100;
         scene.add(object);
         models.push(object);
@@ -204,7 +216,7 @@ function createscene(){
         //var cameraSettings = buttonCameraSettings[buttonId];
         //updateCameraTweens(cameraSettings);
         updateModelsTweens();
-       
+
     });
 
     var button2 = document.getElementById('anterior');
@@ -214,7 +226,7 @@ function createscene(){
         //var cameraSettings = buttonCameraSettings[buttonId];
         //updateCameraTweens(cameraSettings);
         updateModelsTweens();
-       
+
     });
 
     var btn_Aceptar = document.getElementById('aceptar');
@@ -223,14 +235,14 @@ function createscene(){
         var idImagen = activo.childNodes[0].nextSibling.id
         console.log(idImagen);
         if (indexModels == idImagen) {
-           alert("Correcto"); 
+           alert("Correcto");
         }
         else
-            alert("Incorrecto"); 
-        
-       
+            alert("Incorrecto");
+
+
     });
-    
+
     resizeCanvasToDisplaySize(true);
     //requestAnimationFrame(update);
 }
@@ -272,7 +284,7 @@ function updateModelsTweens() {
                 .easing(TWEEN.Easing.Quadratic.InOut)
                 .start();
                 break;
-        
+
             case 1:
                 new TWEEN.Tween(models[i].position)
                 .to({x:0}, 1000)
@@ -285,7 +297,7 @@ function updateModelsTweens() {
       positionTween.stop();
       positionTween.to(params.position, 1000).start();
     }
-  
+
     if (params.rotation) {
       rotationTween.stop();
       rotationTween.to(params.rotation, 1000).start();
@@ -296,7 +308,7 @@ function updateModelsTweens() {
 function onTransitionEnd( event ) {
 
 	event.target.remove();
-	
+
 }
 
 function update(){
