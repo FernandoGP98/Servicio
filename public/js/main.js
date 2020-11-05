@@ -130,7 +130,7 @@ function createscene(){
     };
 
 
-    cargador.load("../assets/Intersecciones/Cilindro cono.fbx", function(object){
+    cargador.load("../assets/Intersecciones/CilindroCono.fbx", function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
