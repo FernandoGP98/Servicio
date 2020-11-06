@@ -68,7 +68,7 @@ function createscene(){
     //camara = new THREE.PerspectiveCamera(fov, sceneW/sceneH, acercamiento, lejania);
     //camara = new THREE.PerspectiveCamera(fov, container.innerWidth/ container.innerHeight, acercamiento, lejania);
     camara = new THREE.PerspectiveCamera(fov, 1, acercamiento, lejania);
-    camara.position.set(0, 200, -300);
+    camara.position.set(0, 200, 300);
 
     //LUCES
     /*var luz = new THREE.DirectionalLight(0xffffff);
@@ -123,14 +123,14 @@ function createscene(){
         loadComplete=true;
 
         for (let index = 0; index < models.length; index++) {
-            models[index].position.x-=addPos;
+            models[index].position.x+=addPos;
             console.log(addPos);
-            addPos+=500;
+            addPos+=800;
         }
     };
 
 
-    cargador.load("../assets/Intersecciones/CilindroCono.fbx", function(object){
+    /*cargador.load("../assets/Intersecciones/CilindroCono.fbx", function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
@@ -141,58 +141,58 @@ function createscene(){
                 //child.recieveShadow = true;
                 child.material.fog=false;
                 child.material.depthWrite = false;
-                /*[THREE.BackSide].forEach((side)=>{
-                    child.material = new THREE.MeshPhongMaterial({
-                        color: 0xff0000,
-                        opacity: 0.5,
-                        transparent: true,
-                        side,
-                    });;
-                });*/
 
             }
         });
 
-        object.position.y=50;
+        //object.position.y=50;
         //object.scale.set(0.02,0.02,0.02);
         scene.add(object);
         models.push(object);
-    });
+    });*/
 
-    cargador.load("../assets/The_usurper/unsurper.fbx", function(object){
+    cargarModelo(cargador,"CilindroCono.fbx",false, THREE.FrontSide);
+
+    /*cargador.load("../assets/Intersecciones/CilParabolico-CilParabolico.fbx", function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
 
         object.traverse(function(child){
             if(child.isMesh){
-                child.castShadow=true;
-                child.recieveShadow = true;
+                child.material.fog=false;
+                //child.material.depthWrite = false;
+                child.material.side=THREE.DoubleSide;
             }
         });
 
-        object.position.z=100;
+        //object.position.z=50;
         scene.add(object);
         models.push(object);
-    });
+    });*/
+    cargarModelo(cargador,"CilParabolico-CilParabolico.fbx",true, THREE.DoubleSide);
 
-    cargador.load("../assets/The_usurper/unsurper.fbx", function(object){
+    /*cargador.load("../assets/Intersecciones/Cilindro Cilindro.fbx", function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
 
         object.traverse(function(child){
             if(child.isMesh){
-                child.castShadow=true;
-                child.recieveShadow = true;
+                child.material.fog=false;
+                child.material.depthWrite = false;
             }
         });
 
-        object.position.z=100;
+        //object.position.z=100;
         scene.add(object);
         models.push(object);
-    });
+    });*/
 
+    cargarModelo(cargador,"Cilindro Cilindro.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Cilindro Parabola.fbx",false, THREE.DoubleSide);
+    cargarModelo(cargador,"Conico Exp.fbx",false, THREE.DoubleSide);
+    cargarModelo(cargador,"Cono Esfera X.fbx",false, THREE.DoubleSide);
     //PISO
     {
         var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000,2000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
@@ -245,6 +245,26 @@ function createscene(){
 
     resizeCanvasToDisplaySize(true);
     //requestAnimationFrame(update);
+}
+
+function cargarModelo(cargador,objeto,depthWrite, side){
+    cargador.load("../assets/Intersecciones/"+objeto, function(object){
+        //mixer = new THREE.AnimationMixer(object);
+        //var action = mixerclipAction(object.animations[0]);
+        //action.play();
+
+        object.traverse(function(child){
+            if(child.isMesh){
+                child.material.fog=false;
+                child.material.depthWrite = depthWrite;
+                child.material.side=side;
+            }
+        });
+
+        //object.position.z=100;
+        scene.add(object);
+        models.push(object);
+    });
 }
 
 function resizeCanvasToDisplaySize(force) {
