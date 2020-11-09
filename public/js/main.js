@@ -130,16 +130,16 @@ function createscene(){
     };
 
     cargarModelo(cargador,"CilindroCono.fbx",false, THREE.FrontSide);
-    //cargarModelo(cargador,"CilParabolico-CilParabolico.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Cilindro Cilindro.fbx",false, THREE.FrontSide);
-    //cargarModelo(cargador,"Cilindro Parabola.fbx",false, THREE.DoubleSide);
-    //cargarModelo(cargador,"Conico Exp.fbx",false, THREE.DoubleSide);
-    //cargarModelo(cargador,"Cono Esfera X.fbx",false, THREE.DoubleSide);
-    //cargarModelo(cargador,"Coordenadas Esfericas.fbx",false, THREE.FrontSide);
-    //cargarModelo(cargador,"Panel Solar-2.fbx",true, THREE.FrontSide);
-    //cargarModelo(cargador,"Parabola Parabola.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Parabola Plano.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"CilParabolico-CilParabolico.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"Cilindro Cilindro.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Cilindro Parabola.fbx",false, THREE.DoubleSide);
+    cargarModelo(cargador,"Conico Exp.fbx",false, THREE.DoubleSide);
+    cargarModelo(cargador,"Cono Esfera X.fbx",false, THREE.DoubleSide);
+    cargarModelo(cargador,"Coordenadas Esfericas.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Panel Solar-2.fbx",true, THREE.FrontSide);
+    cargarModelo(cargador,"Parabola Parabola.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"Parabola Plano.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Parabola ValAbs.fbx",true, THREE.DoubleSide);
     //PISO
     {
