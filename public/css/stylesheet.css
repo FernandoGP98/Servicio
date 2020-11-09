@@ -5,7 +5,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #000000;
+	background-color: rgb(27, 18, 31);
 	opacity: 1;
  	transition: 1s opacity;
 }
@@ -24,7 +24,7 @@
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #9370DB;
+    border-top-color:rgb(34, 143, 194);
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
@@ -37,7 +37,7 @@
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #BA55D3;
+    border-top-color: rgb(94, 202, 193);
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
 }
@@ -50,7 +50,7 @@
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #FF00FF;
+    border-top-color:white;
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
 }
@@ -79,7 +79,22 @@
     }
 }
 
-#idCanvas { 
+.navbar{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(19, 18, 48) !important;
+    color: rgb(34, 143, 194);
+}
+.navbar .sub{
+    color: rgb(237, 169, 36);
+}
+.container{
+    border: solid !important;
+    border-radius: 2px !important;
+    border-color: rgba(94, 202, 193, 0.658) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#idCanvas {
     width: 100%;
     height: 100%;
 }
@@ -88,8 +103,21 @@
     position: absolute;
     height: 100%;
     z-index: 1;
+
+}
+.btn{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(34, 143, 194, 0.651);
+    border: solid !important;
+    border-radius: 2px !important;
+    border-color: rgba(94, 202, 193, 0.658) !important;
+    color: rgb(255, 255, 255);
 }
 
 #planos{
     display: block;
+}
+
+body{
+    background-color: rgb(27, 18, 31) !important;
 }

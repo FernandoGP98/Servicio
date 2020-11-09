@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="{{asset('css/stylesheet.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-    <div class="container-fluid">
+    <nav class="navbar d-block">
+        <span class="navbar-brand mb-0"><h2>Demo</h2></span> <br>
+        <span class="sub mx-0">Servicio social</span>
+      </nav>
+    <div class="container my-3">
         <div class="row">
             <section id="loading-screen">
 

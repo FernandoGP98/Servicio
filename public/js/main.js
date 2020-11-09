@@ -12,6 +12,7 @@ var renderer, camara;
 var controls;
 var clock = new THREE.Clock();
 var mixer;
+var spotLight;
 
 var positionTween;
 var rotationTween;
@@ -83,12 +84,13 @@ function createscene(){
     hemi.position.set(0,200,0);
     scene.add(hemi);
 
-    var spotLight = new THREE.SpotLight( 0xffffff, 1 );
+    spotLight = new THREE.SpotLight( 0xffffff, 1 );
     spotLight.position.set( 0, 400, 0 );
     spotLight.angle = 0.5;
     spotLight.penumbra = 0.05;
     spotLight.decay = 1;
     spotLight.distance = 2000;
+    spotLight.power= 5 * Math.PI;
 
     spotLight.castShadow = true;
     scene.add( spotLight );
@@ -141,15 +143,18 @@ function createscene(){
     cargarModelo(cargador,"Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Parabola Plano.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Parabola ValAbs.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"parabolico cubico - posgrado.fbx",true, THREE.DoubleSide);
+    cargarModelo(cargador,"Trigo - Plano.fbx",true, THREE.DoubleSide);
+
     //PISO
     {
-        var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000,2000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
+        var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(25000,1000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
         piso.rotation.x= -Math.PI/2;
         piso.position.y= -5;
         piso.receiveShadow  = true;
         scene.add(piso);
 
-        var cuadricula = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+        var cuadricula = new THREE.GridHelper( 25000, 100, 0x000000, 0x000000 );
         cuadricula.material.opacity = 0.2;
         cuadricula.material.transparent = true;
         cuadricula.position.y = -5;
@@ -241,6 +246,17 @@ function updateModelsTweens() {
     .to({x : models[indexModels].position.x}, 1000)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .start();
+
+    new TWEEN.Tween(spotLight.position)
+    .to({x : models[indexModels].position.x}, 1000)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .start();
+
+    new TWEEN.Tween(spotLight.target.position)
+    .to({x : models[indexModels].position.x}, 1000)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .start();
+
 
 
     //controls.enabled=false;
