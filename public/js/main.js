@@ -51,6 +51,7 @@ function createscene(){
     var myCanvas = document.getElementById("idCanvas");
     //container = document.getElementById("container");
     renderer = new THREE.WebGLRenderer({ antialias: false, canvas: myCanvas });
+    renderer.sortObjects = false;
     //renderer = new THREE.WebGLRenderer({ canvas: document.querySelector("canvas")});
     //renderer.setPixelRatio(window.devicePixelRatio);
     //renderer.setSize(sceneW, sceneH);
@@ -90,7 +91,7 @@ function createscene(){
     spotLight.penumbra = 0.05;
     spotLight.decay = 1;
     spotLight.distance = 2000;
-    spotLight.power= 5 * Math.PI;
+    //spotLight.power= 5 * Math.PI;
 
     spotLight.castShadow = true;
     scene.add( spotLight );
@@ -125,27 +126,13 @@ function createscene(){
         loadComplete=true;
 
         for (let index = 0; index < models.length; index++) {
+            models[index].renderOrder=index;
             models[index].position.x+=addPos;
-            console.log(addPos);
+            console.log(models[index]);
             addPos+=800;
         }
     };
-
-    cargarModelo(cargador,"CilindroCono.fbx",false, THREE.FrontSide);
-    cargarModelo(cargador,"CilParabolico-CilParabolico.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Cilindro Cilindro.fbx",false, THREE.FrontSide);
-    cargarModelo(cargador,"Cilindro Parabola.fbx",false, THREE.DoubleSide);
-    cargarModelo(cargador,"Conico Exp.fbx",false, THREE.DoubleSide);
-    cargarModelo(cargador,"Cono Esfera X.fbx",false, THREE.DoubleSide);
-    cargarModelo(cargador,"Coordenadas Esfericas.fbx",false, THREE.FrontSide);
-    cargarModelo(cargador,"Panel Solar-2.fbx",true, THREE.FrontSide);
-    cargarModelo(cargador,"Parabola Parabola.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Parabola Plano.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Parabola ValAbs.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"parabolico cubico - posgrado.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Trigo - Plano.fbx",true, THREE.DoubleSide);
-
+    cargarModelo(cargador,"Demos","Bisonte.fbx",true, THREE.FrontSide);
     //PISO
     {
         var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(25000,1000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
@@ -161,47 +148,12 @@ function createscene(){
         scene.add( cuadricula );
     }
 
-    //BOTONES
-    var button1 = document.getElementById('siguiente');
-    button1.addEventListener('click', function(ev) {
-        if(indexModels < models.length-1)
-            indexModels++;
-        //var cameraSettings = buttonCameraSettings[buttonId];
-        //updateCameraTweens(cameraSettings);
-        updateModelsTweens();
-
-    });
-
-    var button2 = document.getElementById('anterior');
-    button2.addEventListener('click', function(ev) {
-        if(indexModels>0)
-            indexModels--;
-        //var cameraSettings = buttonCameraSettings[buttonId];
-        //updateCameraTweens(cameraSettings);
-        updateModelsTweens();
-
-    });
-
-    var btn_Aceptar = document.getElementById('aceptar');
-    btn_Aceptar.addEventListener('click', function(ev) {
-        var activo = document.querySelector(".slick-active");
-        var idImagen = activo.childNodes[0].nextSibling.id
-        console.log(idImagen);
-        if (indexModels == idImagen) {
-           alert("Correcto");
-        }
-        else
-            alert("Incorrecto");
-
-
-    });
-
     resizeCanvasToDisplaySize(true);
     //requestAnimationFrame(update);
 }
 
-function cargarModelo(cargador,objeto,depthWrite, side){
-    cargador.load("../assets/Intersecciones/"+objeto, function(object){
+function cargarModelo(cargador,carpeta,objeto,depthWrite, side){
+    cargador.load("../assets/"+carpeta+"/"+objeto, function(object){
         //mixer = new THREE.AnimationMixer(object);
         //var action = mixerclipAction(object.animations[0]);
         //action.play();
@@ -213,10 +165,10 @@ function cargarModelo(cargador,objeto,depthWrite, side){
                 child.material.side=side;
             }
         });
-
+        object.name=objeto;
         //object.position.z=100;
+        if(object.name=="Bisonte.fbx"){models.unshift(object);}else models.push(object);
         scene.add(object);
-        models.push(object);
     });
 }
 
@@ -256,36 +208,6 @@ function updateModelsTweens() {
     .to({x : models[indexModels].position.x}, 1000)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .start();
-
-
-
-    //controls.enabled=false;
-    /*for (let i = 0; i < models.length; i++) {
-        switch (i) {
-            case 0:
-                new TWEEN.Tween(models[i].position)
-                .to({x : 500}, 1000)
-                .easing(TWEEN.Easing.Quadratic.InOut)
-                .start();
-                break;
-
-            case 1:
-                new TWEEN.Tween(models[i].position)
-                .to({x:0}, 1000)
-                .easing(TWEEN.Easing.Quadratic.InOut)
-                .start();
-                break;
-        }
-    }*/
-    /*if (params.position) {
-      positionTween.stop();
-      positionTween.to(params.position, 1000).start();
-    }
-
-    if (params.rotation) {
-      rotationTween.stop();
-      rotationTween.to(params.rotation, 1000).start();
-    }*/
 
 }
 
