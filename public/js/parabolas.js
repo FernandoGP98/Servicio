@@ -141,11 +141,11 @@ function createscene(){
     //cargarModelo(cargador,"Intersecciones","Cono Esfera X.fbx",false, THREE.DoubleSide);
     //cargarModelo(cargador,"Intersecciones","Coordenadas Esfericas.fbx",false, THREE.FrontSide);
     //cargarModelo(cargador,"Intersecciones","Panel Solar-2.fbx",true, THREE.FrontSide);
-    cargarModelo(cargador,"Intersecciones","Parabola Parabola.fbx",true, THREE.DoubleSide);
+    //cargarModelo(cargador,"Intersecciones","Parabola Parabola.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Intersecciones","Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Intersecciones","Parabola Plano.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Intersecciones","Parabola ValAbs.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Intersecciones","parabolico cubico - posgrado.fbx",true, THREE.DoubleSide);
+    //cargarModelo(cargador,"Intersecciones","parabolico cubico - posgrado.fbx",true, THREE.DoubleSide);
     cargarModelo(cargador,"Intersecciones","Trigo - Plano.fbx",true, THREE.DoubleSide);
 
 
