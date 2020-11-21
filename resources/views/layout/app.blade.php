@@ -10,13 +10,31 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-    <nav class="navbar d-block navbar-expand-md">
-        <a class="navbar-brand mb-0" href="/"><h2>Demo</h2></a>
-        <span class="sub mx-0">Servicio social</span>
+    <nav class="navbar navbar-expand-md">
+        <div class="navbar-collapse collapse order-0 order-md-0 dual-collapse2">
+            <a class="navbar-brand mb-0" href="/"> <img class="mb-lg-3" width="18%" height="auto" src="\imagenes\Uanl.png" alt=""> <br><span class="sub"
+                style="font-size: 12px;">CAEC 303<br> “Investigación y Visualización Matemática en Innovación Educativa 2020"</span></a>
+        </div>
+        <div class="mx-auto order-1">
+            <div class="text-center">
+                <span class="sub mx-0">Universidad Autonoma de Nuevo Leon</span>
+                <hr class="my-1" style="border-top: 1px solid white;">
+                <span class="sub mx-0">Facultad de Ciencias Físico Matemáticas</span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse order-2">
+            <ul>
+           <li style="list-style-type:none; text-align:right;"><img class="mb-lg-3 pull-right" src="\imagenes\FCFM_Bisonte.png" alt="" srcset="" width="18%" height="auto"><br><span>
+               VERSION 1.0
+           </span></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-md">
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/"><img width="100$" height="auto" src="\imagenes\background-02-01.jpg" alt=""> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item dropdown  {{ request()->is('geometrias*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +64,7 @@
                 </div>
               </li>
             </ul>
-          </div>
+        </div>
     </nav>
     <main class="py-4">
         @yield('content')

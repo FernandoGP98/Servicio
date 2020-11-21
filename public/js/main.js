@@ -105,6 +105,7 @@ function createscene(){
     controls.minDistance=200;
     controls.maxDistance=700;
     controls.update();
+    controls.target.y = 100;
 
     //CUBO
     var geometria = new THREE.BoxGeometry(10,10,10);
