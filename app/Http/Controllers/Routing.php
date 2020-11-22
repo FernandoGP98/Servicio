@@ -10,6 +10,10 @@ class Routing extends Controller
         return view('index');
     }
 
+    public function creditos(){
+        return view('creditos');
+    }
+
     public function cilindros(){
         return view('cilindros');
     }

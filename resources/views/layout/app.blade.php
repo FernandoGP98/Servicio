@@ -36,7 +36,7 @@
               <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                 <a class="nav-link" href="/"><img width="100$" height="auto" src="\imagenes\background-02-01.jpg" alt=""> <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item dropdown  {{ request()->is('geometrias*') ? 'active' : '' }}">
+              <li class="nav-item dropdown d-flex align-items-end {{ request()->is('geometrias*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Geo-Datos
                 </a>
@@ -46,7 +46,7 @@
                   <a class="dropdown-item" href="{{ url('/geometrias/prismas') }}">Prismas</a>
                 </div>
               </li>
-              <li class="nav-item dropdown {{ request()->is('intersecciones*') ? 'active' : '' }}">
+              <li class="nav-item dropdown d-flex align-items-end {{ request()->is('intersecciones*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Intersecciones
                 </a>
@@ -55,13 +55,18 @@
                     <a class="dropdown-item" href="{{ url('/intersecciones/parabolas') }}">Parabola</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown d-flex align-items-end">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Extras
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Bisonte</a>
                 </div>
+              </li>
+              <li class="nav-item d-flex align-items-end">
+                <a class="nav-link" href="/creditos"  aria-expanded="false">
+                  Creditos
+                </a>
               </li>
             </ul>
         </div>
