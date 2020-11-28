@@ -134,6 +134,9 @@ function createscene(){
     };
     cargarModelo(cargador,"Demos","Bisonte.fbx",true, THREE.FrontSide);
     cargarModelo(cargador,"Geometrias","Prismas - 03 - 11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Prismas - 04 - 11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Prismas - 05 - 11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Prismas - 06 - 11.fbx",false, THREE.FrontSide);
 
 
     //PISO

@@ -101,11 +101,11 @@
     color: white !important;
 }
 .nav-item.active>a{
-    background-color:  rgb(34, 143, 194);
+    background-color: #004494;
     color: white !important;
-    border-top: solid 3px rgba(94, 202, 193, 0.658) !important;
-    border-left: solid 3px rgba(94, 202, 193, 0.658) !important;
-    border-right: solid 3px rgba(94, 202, 193, 0.658) !important;
+    border-top: solid 3px #bb1e28 !important;
+    border-left: solid 3px #bb1e28 !important;
+    border-right: solid 3px #bb1e28 !important;
 }
 a{
     text-decoration: none !important;
@@ -142,8 +142,7 @@ a{
 }
 
 body{
-    background: rgb(19,18,48);
-    background: radial-gradient( circle, rgba(19,18,48,1) 0%, rgba(9,9,121,1) 23%, rgba(34,143,194,1) 100%);
+    background-color: #004494 !important;
 }
 
 .escuela{
@@ -152,4 +151,18 @@ body{
 
 .escuela span{
     display: inline;
+}
+
+.creditos h1, .row>p, .descripcion{
+    color: white;
+}
+.creditos.container{
+    border: 0px !important;
+}
+.card .card-img-top{
+    object-fit: cover;
+    height: 340px;
+}
+.card{
+    border:2px solid #bb1e28 !important;
 }

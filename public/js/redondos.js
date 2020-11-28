@@ -134,6 +134,10 @@ function createscene(){
     };
     cargarModelo(cargador,"Demos","Bisonte.fbx",true, THREE.FrontSide);
     cargarModelo(cargador,"Geometrias","Cuerpos Redondos - Cilindro -  11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Cuerpos Redondos - Cono - 11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Cuerpos Redondos - Cono Trunco -  11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Cuerpos Redondos - Elipsoide -  11.fbx",false, THREE.FrontSide);
+    cargarModelo(cargador,"Geometrias","Cuerpos Redondos - Esfera - 11.fbx",false, THREE.FrontSide);
 
 
     //PISO

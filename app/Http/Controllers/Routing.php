@@ -14,6 +14,21 @@ class Routing extends Controller
         return view('creditos');
     }
 
+    public function extras($a){
+        switch ($a) {
+            case 'bisonte':
+                return view('bisonte');
+                break;
+
+            case 'solar':
+                return view('solar');
+                break;
+            case 'hubble':
+                return view('hubble');
+                break;
+        }
+    }
+
     public function cilindros(){
         return view('cilindros');
     }

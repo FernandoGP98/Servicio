@@ -55,15 +55,17 @@
                     <a class="dropdown-item" href="{{ url('/intersecciones/parabolas') }}">Parabola</a>
                 </div>
               </li>
-              <li class="nav-item dropdown d-flex align-items-end">
+              <li class="nav-item dropdown d-flex align-items-end {{ request()->is('extras*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Extras
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Bisonte</a>
+                    <a class="dropdown-item" href="{{ url('/extras/bisonte') }}">Bisonte</a>
+                    <a class="dropdown-item" href="{{ url('/extras/solar') }}">Sistema Solar</a>
+                    <a class="dropdown-item" href="{{ url('/extras/hubble') }}">Hubble</a>
                 </div>
               </li>
-              <li class="nav-item d-flex align-items-end">
+              <li class="nav-item d-flex align-items-end {{ request()->is('creditos*') ? 'active' : '' }}">
                 <a class="nav-link" href="/creditos"  aria-expanded="false">
                   Creditos
                 </a>
