@@ -79,9 +79,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ url('/genericos/postgrado') }}">Postgrado</a>
-                    <a class="dropdown-item" href="{{ url('/genericos/bisonte') }}">Bisonte</a>
-                    <a class="dropdown-item" href="{{ url('/genericos/logo_mm') }}">Logo MM</a>
-                    <a class="dropdown-item" href="{{ url('/genericos/logo_ll') }}">Logo LL</a>
+                    <a class="dropdown-item" href="{{ url('/genericos/logo_MM') }}">Logo MM</a>
+                    <a class="dropdown-item" href="{{ url('/genericos/logo_LL') }}">Logo LL</a>
                 </div>
               </li>
               <li class="nav-item d-flex align-items-end {{ request()->is('creditos*') ? 'active' : '' }}">

@@ -101,7 +101,6 @@ function createscene(){
 
     //CONTROLES
     controls = new OrbitControls(camara, renderer.domElement);
-    controls.enablePan=false;
     controls.minDistance=200;
     controls.maxDistance=700;
     controls.update();

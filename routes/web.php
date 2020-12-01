@@ -15,4 +15,5 @@ Route::get('/geometrias/prismas', [Routing::class, 'prismas']);
 
 Route::get('/creditos', [Routing::class, 'creditos']);
 Route::get('/extras/{a}', [Routing::class, 'extras']);
+Route::get('/genericos/{a}', [Routing::class, 'genericos']);
 

@@ -29,6 +29,20 @@ class Routing extends Controller
         }
     }
 
+    public function genericos($a){
+        switch ($a) {
+            case 'postgrado':
+                return view('postgrado');
+                break;
+            case 'logo_MM':
+                return view('logo_MM');
+            break;
+            case 'logo_LL':
+                return view('logo_LL');
+            break;
+        }
+    }
+
     public function superficies(){
         return view('superficies');
     }
