@@ -16,9 +16,9 @@
                 style="font-size: 12px;">CAEC 303<br> “Investigación y Visualización Matemática en Innovación Educativa 2020"</span></a>
         </div>
         <div class="mx-auto order-1">
-            <div class="text-center">
+            <div class="text-center" style="font-size: 30px;">
                 <span class="sub mx-0">Universidad Autonoma de Nuevo Leon</span>
-                <hr class="my-1" style="border-top: 1px solid white;">
+                <hr class="my-1" style="border-top: 1px solid white; width:70%;">
                 <span class="sub mx-0">Facultad de Ciencias Físico Matemáticas</span>
             </div>
         </div>
@@ -38,12 +38,14 @@
               </li>
               <li class="nav-item dropdown d-flex align-items-end {{ request()->is('geometrias*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Geo-Datos
+                  Familias geometricas
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{{ url('/geometrias/redondos') }}">Cuerpos redondos</a>
-                  <a class="dropdown-item" href="{{ url('/geometrias/piramides') }}">Piramides</a>
-                  <a class="dropdown-item" href="{{ url('/geometrias/prismas') }}">Prismas</a>
+                    <a class="dropdown-item" href="{{ url('/geometrias/cilindro') }}">Cilindro</a>
+                    <a class="dropdown-item" href="{{ url('/geometrias/cono') }}">Cono</a>
+                    <a class="dropdown-item" href="{{ url('/geometrias/redondos') }}">Cuerpos redondos</a>
+                    <a class="dropdown-item" href="{{ url('/geometrias/piramides') }}">Piramides</a>
+                    <a class="dropdown-item" href="{{ url('/geometrias/prismas') }}">Prismas</a>
                 </div>
               </li>
               <li class="nav-item dropdown d-flex align-items-end {{ request()->is('intersecciones*') ? 'active' : '' }}">
@@ -51,9 +53,14 @@
                   Intersecciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ url('/intersecciones/cilindros') }}">Cilindro</a>
-                    <a class="dropdown-item" href="{{ url('/intersecciones/parabolas') }}">Parabola</a>
+                    <a class="dropdown-item" href="{{ url('/intersecciones/superficies') }}">Superficies</a>
+                    <a class="dropdown-item" href="{{ url('/intersecciones/plano_inclinado') }}">Plano inclinado</a>
                 </div>
+              </li>
+              <li class="nav-item d-flex align-items-end {{ request()->is('pitagoras*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/pitagoras') }}"  aria-expanded="false">
+                  Pitagoras
+                </a>
               </li>
               <li class="nav-item dropdown d-flex align-items-end {{ request()->is('extras*') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +69,19 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ url('/extras/bisonte') }}">Bisonte</a>
                     <a class="dropdown-item" href="{{ url('/extras/solar') }}">Sistema Solar</a>
+                    <a class="dropdown-item" href="{{ url('/extras/hubble') }}">Tierra vs Luna</a>
                     <a class="dropdown-item" href="{{ url('/extras/hubble') }}">Hubble</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown d-flex align-items-end {{ request()->is('genericos*') ? 'active' : '' }}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Genericos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ url('/genericos/postgrado') }}">Postgrado</a>
+                    <a class="dropdown-item" href="{{ url('/genericos/bisonte') }}">Bisonte</a>
+                    <a class="dropdown-item" href="{{ url('/genericos/logo_mm') }}">Logo MM</a>
+                    <a class="dropdown-item" href="{{ url('/genericos/logo_ll') }}">Logo LL</a>
                 </div>
               </li>
               <li class="nav-item d-flex align-items-end {{ request()->is('creditos*') ? 'active' : '' }}">
@@ -81,6 +100,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    @yield('scripts')
     <script type="text/javascript">
         $(document).ready(function(){
           $('.respuestas').slick({

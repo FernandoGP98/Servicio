@@ -29,12 +29,20 @@ class Routing extends Controller
         }
     }
 
-    public function cilindros(){
-        return view('cilindros');
+    public function superficies(){
+        return view('superficies');
     }
 
-    public function parabolas(){
-        return view('parabolas');
+    public function plano_inclinado(){
+        return view('plano_inclinado');
+    }
+
+    public function cilindro(){
+        return view('cilindro');
+    }
+
+    public function cono(){
+        return view('cono');
     }
 
     public function redondos(){

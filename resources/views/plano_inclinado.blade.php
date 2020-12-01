@@ -38,5 +38,5 @@
         </div>
     </div>
 </div>
-<script type="module" src="/js/parabolas.js"></script>
+<script type="module" src="/js/plano_inclinado.js"></script>
 @endsection

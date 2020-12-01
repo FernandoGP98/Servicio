@@ -105,6 +105,7 @@ function createscene(){
     controls.minDistance=200;
     controls.maxDistance=700;
     controls.update();
+    controls.target.y = 100;
 
     //CUBO
     var geometria = new THREE.BoxGeometry(10,10,10);
@@ -132,23 +133,7 @@ function createscene(){
             addPos+=800;
         }
     };
-    cargarModelo(cargador,"Demos","Bisonte.fbx",true, THREE.FrontSide);
-    cargarModelo(cargador,"Intersecciones","CilindroCono.fbx",false, THREE.FrontSide);
-    cargarModelo(cargador,"Intersecciones","CilParabolico-CilParabolico.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Intersecciones","Cilindro Cilindro.fbx",false, THREE.FrontSide);
-    cargarModelo(cargador,"Intersecciones","Cilindro Parabola.fbx",false, THREE.DoubleSide);
-    cargarModelo(cargador,"Intersecciones","Conico Exp.fbx",false, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Cono Esfera X.fbx",false, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Coordenadas Esfericas.fbx",false, THREE.FrontSide);
-    //cargarModelo(cargador,"Intersecciones","Panel Solar-2.fbx",true, THREE.FrontSide);
-    cargarModelo(cargador,"Intersecciones","Parabola Parabola.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Parabola Plano 02 - 00.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Parabola Plano.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Parabola ValAbs.fbx",true, THREE.DoubleSide);
-    cargarModelo(cargador,"Intersecciones","parabolico cubico - posgrado.fbx",true, THREE.DoubleSide);
-    //cargarModelo(cargador,"Intersecciones","Trigo - Plano.fbx",true, THREE.DoubleSide);
-
-
+    cargarModelo(cargador,"Geometrias","Cilindro - 11.fbx",true, THREE.FrontSide);
     //PISO
     {
         var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(25000,1000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
@@ -163,41 +148,6 @@ function createscene(){
         cuadricula.position.y = -5;
         scene.add( cuadricula );
     }
-
-    //BOTONES
-    var button1 = document.getElementById('siguiente');
-    button1.addEventListener('click', function(ev) {
-        if(indexModels < models.length-1)
-            indexModels++;
-        //var cameraSettings = buttonCameraSettings[buttonId];
-        //updateCameraTweens(cameraSettings);
-        updateModelsTweens();
-
-    });
-
-    var button2 = document.getElementById('anterior');
-    button2.addEventListener('click', function(ev) {
-        if(indexModels>0)
-            indexModels--;
-        //var cameraSettings = buttonCameraSettings[buttonId];
-        //updateCameraTweens(cameraSettings);
-        updateModelsTweens();
-
-    });
-
-    var btn_Aceptar = document.getElementById('aceptar');
-    btn_Aceptar.addEventListener('click', function(ev) {
-        var activo = document.querySelector(".slick-active");
-        var idImagen = activo.childNodes[0].nextSibling.id
-        console.log(idImagen);
-        if (indexModels == idImagen) {
-           alert("Correcto");
-        }
-        else
-            alert("Incorrecto");
-
-
-    });
 
     resizeCanvasToDisplaySize(true);
     //requestAnimationFrame(update);
@@ -259,36 +209,6 @@ function updateModelsTweens() {
     .to({x : models[indexModels].position.x}, 1000)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .start();
-
-
-
-    //controls.enabled=false;
-    /*for (let i = 0; i < models.length; i++) {
-        switch (i) {
-            case 0:
-                new TWEEN.Tween(models[i].position)
-                .to({x : 500}, 1000)
-                .easing(TWEEN.Easing.Quadratic.InOut)
-                .start();
-                break;
-
-            case 1:
-                new TWEEN.Tween(models[i].position)
-                .to({x:0}, 1000)
-                .easing(TWEEN.Easing.Quadratic.InOut)
-                .start();
-                break;
-        }
-    }*/
-    /*if (params.position) {
-      positionTween.stop();
-      positionTween.to(params.position, 1000).start();
-    }
-
-    if (params.rotation) {
-      rotationTween.stop();
-      rotationTween.to(params.rotation, 1000).start();
-    }*/
 
 }
 
