@@ -38,7 +38,7 @@
                     height="250px" width="auto" alt="parabola y plano en X">
                 </div>
                 <div class="d-flex justify-content-center">
-                    <img class="imgForModal" id="5" src="\imagenes\imagenes_intersecciones\plano_elipsoide.png"
+                    <img class="imgForModal" id="5" src="\imagenes\imagenes_intersecciones\plano_elipsoide.PNG"
                     height="250px" width="auto" alt="plano y elipsoide">
                 </div>
                 <div class="d-flex justify-content-center">

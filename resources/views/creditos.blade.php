@@ -67,6 +67,12 @@
             </div>
         </div>
     </div>
+    <div class="row my-5">
+        <div class="col-lg-12 text-left" style="color: white">
+            <h4>Prototipo Repositorio: SS Junio - Noviembre 2020. V1.0 Fernando Gomez Pizaña (LMAD) <span>
+                <br>fernando.gomezpz@uanl.edu.mx</span> </h4>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12 descripcion">
             Los proyectos interdisciplinarios de Realidad Aumentada (MATH-AR-UANL)

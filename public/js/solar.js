@@ -134,7 +134,7 @@ function createscene(){
     };
     cargarModelo(cargador,"Demos","Elipse - Orbitas Planetarias - 02.fbx",true, THREE.FrontSide);
     //PISO
-    {
+    /*{
         var piso = new THREE.Mesh(new THREE.PlaneBufferGeometry(250000,250000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
         piso.rotation.x= -Math.PI/2;
         piso.position.y= -5;
@@ -146,7 +146,7 @@ function createscene(){
         cuadricula.material.transparent = true;
         cuadricula.position.y = -5;
         scene.add( cuadricula );
-    }
+    }*/
 
     resizeCanvasToDisplaySize(true);
     //requestAnimationFrame(update);
